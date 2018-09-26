@@ -3,6 +3,8 @@ Here lies all the code I wrote while learning Node.js with the [Pirple's Node.js
 
 Every assignment/practice-module is stored in its own git submodule for more-or-less easy code management.
 
+All code is in TypeScript.
+
 ## Why bother with TypeScript?
 
 Being a full-time front-end developer I decided to learn true back-end Node.js with the help of [Pirple Node.js course](https://pirple.thinkific.com/courses/the-nodejs-master-class). And due to my immense familiarity with all specifications of standard JavaScript and its module system, I decided to raise the stakes a bit and give myself a little challenge: complete every single practice section of this course using only TypeScript to also test my cognitive transpilation skills.
