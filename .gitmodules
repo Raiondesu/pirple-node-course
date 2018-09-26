@@ -1,0 +1,4 @@
+[submodule "availability-check"]
+	path = availability-check
+	url = git@github.com:Raiondesu/availability-check.git
+	branch = master
