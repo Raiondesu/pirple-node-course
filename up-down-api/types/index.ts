@@ -1,6 +1,6 @@
 export namespace Route {
   export type Payload<T> = {
-    status?: number;
+    status: number;
     payload?: T;
   };
 

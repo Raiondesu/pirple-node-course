@@ -17,7 +17,7 @@ export default {
     })
   }),
 
-  'ping': data => ({}),
+  'ping': _ => ({ status: 200 }),
 
   // 404 handler
   '*': () => ({ status: 404 })
