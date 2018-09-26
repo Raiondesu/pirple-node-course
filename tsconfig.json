@@ -30,7 +30,6 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "outDir": "dist",
     "types": [
       "node"
     ]
