@@ -16,7 +16,7 @@ This, however, comes with an obvious burden of having some npm dependencies whic
 git clone --recursive https://github.com/Raiondesu/pirple-node-course.git
 cd pirple-node-course
 
-npm i typescript tslint ts-node ts-node-dev dotenv @types/node
+npm i typescript tslint ts-node ts-node-dev @types/node
 rm package-lock.json
 ```
 
