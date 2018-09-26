@@ -1,4 +1,4 @@
-import { RouteHandler, IRouteTree } from '.';
+import { Router } from '../types';
 
 /**
  * fromPath
@@ -19,7 +19,7 @@ export function fromPath(obj, path, splitter = '.') {
   return path.split(splitter).reduce((o, i) => (o === Object(o) ? o[i] : o), obj);
 }
 
-export function route(handler: RouteHandler, children?: IRouteTree) {
+export function route(handler: Router.Handler, children?: Router.ITree) {
   if (children) {
     for (const route in children) {
       handler[route] = children[route];

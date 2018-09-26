@@ -1,11 +1,13 @@
 /**
  * Entry API file
  */
+import '../.env.ts';
 import { createServer } from 'http';
 import { parse as parseUrl } from 'url';
 import { StringDecoder } from 'string_decoder';
 import { fromPath, route } from './misc';
 import { Router } from './types';
+import config from './config';
 
 const server = createServer((req, res) => {
   // Get url and parse it
@@ -60,7 +62,7 @@ const server = createServer((req, res) => {
   });
 });
 
-server.listen(3000, () => console.log('Server listening on port 3000.'));
+server.listen(config.port, () => console.log(`Server listening on port ${config.port}.`));
 
 const router: Router.ITree = {
   // Sample handler
