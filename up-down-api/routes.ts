@@ -17,6 +17,8 @@ export default {
     })
   }),
 
+  'ping': data => ({}),
+
   // 404 handler
   '*': () => ({ status: 404 })
 } as Route.Tree;

@@ -2,7 +2,7 @@ import { Server as InsecureServer, IncomingMessage, ServerResponse } from 'http'
 import { createServer, Server as SecureServer, ServerOptions } from 'https';
 import { parse as parseUrl } from 'url';
 import { StringDecoder } from 'string_decoder';
-import { fromPath, route } from './misc';
+import { fromPath } from './misc';
 import { Route } from './types';
 import config from './config';
 import { readFileSync } from 'fs';
@@ -14,7 +14,7 @@ export default class Server {
   constructor(protocol: 'https', port: number, routes: Route.Tree, httpsConfig?: ServerOptions);
   constructor(protocol: 'http' | 'https', port: number, routes: Route.Tree, httpsConfig?: ServerOptions) {
     if (protocol === 'https') {
-      
+
       this.realServer = createServer({
         key: readFileSync('./https/key.pem'),
         cert: readFileSync('./https/cert.pem'),
@@ -28,7 +28,7 @@ export default class Server {
     }
 
     this.realServer.listen(port, () => {
-      console.log(`Server listening on port ${config.httpsPort} under ${config.env} ${protocol}.`);
+      console.log(`Server listening on port ${port} under ${config.env} ${protocol}.`);
     });
   }
 

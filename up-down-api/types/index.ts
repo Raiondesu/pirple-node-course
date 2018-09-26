@@ -4,7 +4,7 @@ export namespace Route {
     payload?: T;
   };
 
-  export type Handler<T = any> = ((data: any) => Promise<Payload<T>> | {});
+  export type Handler<T = any> = ((data: any) => Promise<Payload<T>>) | {};
 
   export type HandlerWithChildren<T extends undefined | {
     [child: string]: HandlerWithChildren;
