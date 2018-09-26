@@ -1,15 +1,22 @@
 const configs = {
   staging: {
-    port: 3000,
+    httpPort: 3000,
+    httpsPort: 3001,
   },
 
   production: {
-    port: 5000,
+    httpPort: 5000,
+    httpsPort: 5001,
   }
 };
 
-const env = typeof process.env.NODE_ENV === 'string' ? process.env.NODE_ENV.toLowerCase() : 'staging';
+const envs = Object.keys(configs);
+let env = envs[0];
 
-const config = env in configs ? configs[env] : configs.staging;
+if (process.env.NODE_ENV && process.env.NODE_ENV in configs) {
+  env = process.env.NODE_ENV;
+} else {
+  process.env.NODE_ENV = env;
+}
 
-export default { env, ...config };
+export default { env, ...configs[env] };
