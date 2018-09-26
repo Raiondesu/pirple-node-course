@@ -5,6 +5,7 @@ import { createServer } from 'http';
 import { parse as parseUrl } from 'url';
 import { StringDecoder } from 'string_decoder';
 import { fromPath, route } from './misc';
+import { Router } from './types';
 
 const server = createServer((req, res) => {
   // Get url and parse it
@@ -61,7 +62,7 @@ const server = createServer((req, res) => {
 
 server.listen(3000, () => console.log('Server listening on port 3000.'));
 
-const router: IRouteTree = {
+const router: Router.ITree = {
   // Sample handler
   'sample': route(_data => ({
     status: 406,
@@ -80,18 +81,3 @@ const router: IRouteTree = {
   // 404 handler
   '*': () => ({ status: 404 })
 };
-
-export type RoutePayload<T> = {
-  status?: number;
-  payload?: T;
-};
-
-export type RouteHandler<T = any> = ((data: any) => Promise<RoutePayload<T>> | {});
-
-export type RouteHandlerWithChildren<T extends undefined | {
-  [child: string]: RouteHandlerWithChildren;
-} = any> = T extends undefined ? RouteHandler : (RouteHandler & T);
-
-export interface IRouteTree {
-  [handler: string]: RouteHandlerWithChildren;
-}
